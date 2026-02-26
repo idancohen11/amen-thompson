@@ -21,7 +21,7 @@ A hilarious, mobile-first one-pager celebrating Houston Rockets guard Amen Thomp
 
 ## 🚀 View Live
 
-[Live Demo](#) (Coming soon)
+**[Live Demo](https://idancohen11.github.io/amen-thompson/)** ← Check it out!
 
 ## 📱 Local Development
 
