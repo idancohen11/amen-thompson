@@ -1,0 +1,658 @@
+/* Amen Thompson Trading Card - Styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Teko:wght@400;600;700&family=Archivo+Black&display=swap');
+
+:root {
+    --rocket-red: #CE1141;
+    --rocket-silver: #C4CED4;
+    --neon-red: #FF0844;
+    --neon-yellow: #FFE400;
+    --deep-space: #0A0E27;
+    --court-wood: #D4A574;
+    --electric-blue: #00D9FF;
+    --shadow-deep: rgba(0, 0, 0, 0.8);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Teko', sans-serif;
+    background: linear-gradient(135deg, var(--deep-space) 0%, #1a1f3a 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Grain Texture Overlay */
+.grain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.15;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='3.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    animation: grainMove 8s steps(10) infinite;
+}
+
+@keyframes grainMove {
+    0%, 100% { transform: translate(0, 0); }
+    10% { transform: translate(-5%, -5%); }
+    20% { transform: translate(-10%, 5%); }
+    30% { transform: translate(5%, -10%); }
+    40% { transform: translate(-5%, 15%); }
+    50% { transform: translate(-10%, 5%); }
+    60% { transform: translate(15%, 0); }
+    70% { transform: translate(0, 10%); }
+    80% { transform: translate(-15%, 0); }
+    90% { transform: translate(10%, 5%); }
+}
+
+/* Card Container */
+.card-container {
+    max-width: 440px;
+    width: 100%;
+    background: linear-gradient(165deg, #1a1f3a 0%, var(--deep-space) 100%);
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    box-shadow:
+        0 0 0 8px rgba(206, 17, 65, 0.3),
+        0 0 0 12px rgba(206, 17, 65, 0.1),
+        0 40px 80px rgba(0, 0, 0, 0.6),
+        inset 0 0 120px rgba(255, 228, 0, 0.05);
+    animation: cardEntrance 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes cardEntrance {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) rotateY(-30deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotateY(0);
+    }
+}
+
+/* Card Header */
+.card-header {
+    background: linear-gradient(135deg, var(--rocket-red) 0%, var(--neon-red) 100%);
+    padding: 30px 24px 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+.star-burst {
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, var(--neon-yellow) 0%, transparent 70%);
+    opacity: 0.3;
+    animation: rotateBurst 20s linear infinite;
+}
+
+@keyframes rotateBurst {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.2); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+.edition-badge {
+    display: inline-block;
+    background: var(--neon-yellow);
+    color: var(--deep-space);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 6px 16px;
+    border-radius: 20px;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 12px rgba(255, 228, 0, 0.4);
+    animation: badgePulse 2s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.player-name {
+    margin: 16px 0 8px;
+    position: relative;
+}
+
+.first-name,
+.last-name {
+    display: block;
+    font-family: 'Archivo Black', sans-serif;
+    line-height: 0.85;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow:
+        4px 4px 0 var(--shadow-deep),
+        -2px -2px 0 var(--neon-yellow);
+}
+
+.first-name {
+    font-size: 56px;
+    animation: slideInLeft 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s backwards;
+}
+
+.last-name {
+    font-size: 64px;
+    animation: slideInRight 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s backwards;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+}
+
+.team-tag {
+    font-family: 'Teko', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    opacity: 0.95;
+    text-shadow: 2px 2px 4px var(--shadow-deep);
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 40px 24px;
+    position: relative;
+}
+
+.card-frame {
+    position: relative;
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, var(--electric-blue) 0%, var(--rocket-red) 100%);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow:
+        0 0 40px rgba(0, 217, 255, 0.3),
+        inset 0 0 60px rgba(0, 0, 0, 0.3);
+}
+
+.holographic-effect {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        45deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.1) 25%,
+        transparent 50%,
+        rgba(255, 255, 255, 0.1) 75%,
+        transparent 100%
+    );
+    animation: holoShift 3s ease-in-out infinite;
+}
+
+@keyframes holoShift {
+    0%, 100% { transform: translateX(-100%) translateY(-100%); }
+    50% { transform: translateX(100%) translateY(100%); }
+}
+
+.player-silhouette {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, rgba(255, 228, 0, 0.2) 0%, transparent 70%);
+}
+
+.jersey-number {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 180px;
+    color: rgba(255, 255, 255, 0.15);
+    text-shadow: 0 0 40px rgba(255, 228, 0, 0.5);
+    animation: numberFloat 4s ease-in-out infinite;
+}
+
+@keyframes numberFloat {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-20px) scale(1.05); }
+}
+
+.action-lines {
+    position: absolute;
+    inset: 0;
+    background:
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            rgba(255, 228, 0, 0.05) 10px,
+            rgba(255, 228, 0, 0.05) 20px
+        );
+    pointer-events: none;
+}
+
+/* Stats Section */
+.stats-section {
+    padding: 40px 24px;
+    background: rgba(10, 14, 39, 0.6);
+}
+
+.section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    letter-spacing: 4px;
+    text-align: center;
+    margin-bottom: 24px;
+    color: var(--neon-yellow);
+    text-shadow:
+        0 0 20px rgba(255, 228, 0, 0.6),
+        2px 2px 4px var(--shadow-deep);
+    position: relative;
+}
+
+.section-title::before,
+.section-title::after {
+    content: '★';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--neon-red);
+    animation: starTwinkle 1.5s ease-in-out infinite alternate;
+}
+
+.section-title::before {
+    left: 10px;
+}
+
+.section-title::after {
+    right: 10px;
+    animation-delay: 0.75s;
+}
+
+@keyframes starTwinkle {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, rgba(206, 17, 65, 0.2) 0%, rgba(206, 17, 65, 0.05) 100%);
+    border: 2px solid rgba(206, 17, 65, 0.4);
+    border-radius: 12px;
+    padding: 20px 16px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 228, 0, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--neon-yellow);
+    box-shadow: 0 8px 24px rgba(255, 228, 0, 0.3);
+}
+
+.stat-card:hover::before {
+    left: 100%;
+}
+
+.stat-value {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 48px;
+    color: var(--neon-yellow);
+    text-shadow: 0 0 20px rgba(255, 228, 0, 0.6);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: white;
+    line-height: 1.2;
+    margin-bottom: 4px;
+}
+
+.stat-note {
+    font-size: 12px;
+    color: var(--rocket-silver);
+    font-style: italic;
+    opacity: 0.8;
+}
+
+/* Bio Section */
+.bio-section {
+    padding: 40px 24px;
+}
+
+.bio-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.bio-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 16px;
+    background: rgba(255, 228, 0, 0.05);
+    border-left: 4px solid var(--neon-yellow);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.bio-item:hover {
+    background: rgba(255, 228, 0, 0.1);
+    transform: translateX(8px);
+}
+
+.bio-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: var(--neon-yellow);
+}
+
+.bio-value {
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+}
+
+/* Achievements Section */
+.achievements-section {
+    padding: 40px 24px;
+    background: rgba(10, 14, 39, 0.6);
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.achievement-badge {
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.2) 0%, rgba(0, 217, 255, 0.05) 100%);
+    border: 2px solid rgba(0, 217, 255, 0.4);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.achievement-badge:hover {
+    transform: scale(1.05) rotate(2deg);
+    border-color: var(--electric-blue);
+    box-shadow: 0 8px 24px rgba(0, 217, 255, 0.4);
+}
+
+.badge-icon {
+    font-size: 40px;
+    margin-bottom: 8px;
+    animation: iconBounce 2s ease-in-out infinite;
+}
+
+@keyframes iconBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.badge-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    line-height: 1.2;
+    letter-spacing: 1px;
+}
+
+/* Signature Section */
+.signature-section {
+    padding: 40px 24px;
+}
+
+.move-display {
+    background: linear-gradient(135deg, var(--rocket-red) 0%, var(--neon-red) 100%);
+    border-radius: 16px;
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow:
+        0 0 40px rgba(206, 17, 65, 0.4),
+        inset 0 0 60px rgba(0, 0, 0, 0.3);
+}
+
+.move-name {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 36px;
+    letter-spacing: 3px;
+    text-shadow:
+        3px 3px 0 var(--shadow-deep),
+        -1px -1px 0 var(--neon-yellow);
+    margin-bottom: 16px;
+}
+
+.move-description {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+    opacity: 0.95;
+}
+
+.activate-button {
+    position: relative;
+    background: var(--neon-yellow);
+    color: var(--deep-space);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    letter-spacing: 3px;
+    padding: 16px 48px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 24px rgba(255, 228, 0, 0.4);
+}
+
+.activate-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 32px rgba(255, 228, 0, 0.6);
+}
+
+.activate-button:active {
+    transform: scale(0.98);
+}
+
+.button-glow {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transform: translateX(-100%);
+}
+
+.activate-button:hover .button-glow {
+    animation: buttonShine 0.8s ease;
+}
+
+@keyframes buttonShine {
+    to { transform: translateX(100%); }
+}
+
+/* Card Footer */
+.card-footer {
+    padding: 32px 24px;
+    text-align: center;
+    background: rgba(10, 14, 39, 0.8);
+    border-top: 2px solid rgba(206, 17, 65, 0.3);
+}
+
+.rarity-badge {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 3px;
+    color: var(--neon-yellow);
+    margin-bottom: 8px;
+}
+
+.card-number {
+    font-size: 14px;
+    color: var(--rocket-silver);
+    margin-bottom: 16px;
+}
+
+.copyright {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 1px;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    animation: modalFadeIn 0.3s ease;
+}
+
+.modal.active {
+    display: flex;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background: linear-gradient(135deg, var(--rocket-red) 0%, var(--neon-red) 100%);
+    padding: 48px 32px;
+    border-radius: 24px;
+    text-align: center;
+    max-width: 320px;
+    box-shadow: 0 0 80px rgba(255, 228, 0, 0.6);
+    animation: modalSlideUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes modalSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.dunk-animation {
+    font-size: 80px;
+    animation: dunkBall 1s ease-in-out infinite;
+}
+
+@keyframes dunkBall {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-30px) rotate(-20deg); }
+    75% { transform: translateY(10px) rotate(20deg); }
+}
+
+.modal-content h3 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 48px;
+    margin: 16px 0;
+    text-shadow: 3px 3px 0 var(--shadow-deep);
+}
+
+.modal-content p {
+    font-size: 18px;
+    margin-bottom: 24px;
+    opacity: 0.95;
+}
+
+.close-button {
+    background: var(--neon-yellow);
+    color: var(--deep-space);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    padding: 12px 32px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(255, 228, 0, 0.5);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 380px) {
+    .first-name {
+        font-size: 48px;
+    }
+
+    .last-name {
+        font-size: 56px;
+    }
+
+    .jersey-number {
+        font-size: 140px;
+    }
+
+    .stats-grid,
+    .achievements-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

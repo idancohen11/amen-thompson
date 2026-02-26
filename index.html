@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amen Thompson - Official Trading Card</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="grain-overlay"></div>
+
+    <div class="card-container">
+        <!-- Card Header -->
+        <div class="card-header">
+            <div class="star-burst"></div>
+            <div class="edition-badge">ROOKIE EDITION</div>
+            <h1 class="player-name">
+                <span class="first-name">AMEN</span>
+                <span class="last-name">THOMPSON</span>
+            </h1>
+            <div class="team-tag">#4 • HOUSTON ROCKETS • GUARD</div>
+        </div>
+
+        <!-- Hero Image Section -->
+        <div class="hero-section">
+            <div class="card-frame">
+                <div class="holographic-effect"></div>
+                <div class="player-silhouette">
+                    <div class="jersey-number">4</div>
+                </div>
+                <div class="action-lines"></div>
+            </div>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-section">
+            <h2 class="section-title">LEGENDARY STATS</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" data-target="100">0</div>
+                    <div class="stat-label">DUNKS<br>PER GAME*</div>
+                    <div class="stat-note">*in my dreams</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" data-target="99">0</div>
+                    <div class="stat-label">TWIN<br>CHEMISTRY</div>
+                    <div class="stat-note">w/ Ausar</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" data-target="87">0</div>
+                    <div class="stat-label">DRIP<br>RATING</div>
+                    <div class="stat-note">certified fresh</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" data-target="42">0</div>
+                    <div class="stat-label">MEMES<br>CREATED</div>
+                    <div class="stat-note">and counting</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bio Section -->
+        <div class="bio-section">
+            <h2 class="section-title">PLAYER PROFILE</h2>
+            <div class="bio-grid">
+                <div class="bio-item">
+                    <span class="bio-label">HEIGHT:</span>
+                    <span class="bio-value">6'7" (but 8'3" with confidence)</span>
+                </div>
+                <div class="bio-item">
+                    <span class="bio-label">WEIGHT:</span>
+                    <span class="bio-value">210 lbs of pure athleticism</span>
+                </div>
+                <div class="bio-item">
+                    <span class="bio-label">BORN:</span>
+                    <span class="bio-value">San Leandro, CA (Bay Area Built)</span>
+                </div>
+                <div class="bio-item">
+                    <span class="bio-label">SUPERPOWER:</span>
+                    <span class="bio-value">Reading defenses like bedtime stories</span>
+                </div>
+                <div class="bio-item">
+                    <span class="bio-label">WEAKNESS:</span>
+                    <span class="bio-value">Free throws (we're working on it)</span>
+                </div>
+                <div class="bio-item">
+                    <span class="bio-label">TWIN STATUS:</span>
+                    <span class="bio-value">Slightly more handsome than Ausar</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Achievements -->
+        <div class="achievements-section">
+            <h2 class="section-title">ACHIEVEMENTS UNLOCKED</h2>
+            <div class="achievements-grid">
+                <div class="achievement-badge">
+                    <div class="badge-icon">🏆</div>
+                    <div class="badge-text">4th Pick<br>2023 Draft</div>
+                </div>
+                <div class="achievement-badge">
+                    <div class="badge-icon">⚡</div>
+                    <div class="badge-text">Faster Than<br>Your Browser</div>
+                </div>
+                <div class="achievement-badge">
+                    <div class="badge-icon">🔥</div>
+                    <div class="badge-text">Highlight<br>Reel King</div>
+                </div>
+                <div class="achievement-badge">
+                    <div class="badge-icon">👯</div>
+                    <div class="badge-text">Best Twin<br>(Don't Tell)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Signature Move -->
+        <div class="signature-section">
+            <h2 class="section-title">SIGNATURE MOVE</h2>
+            <div class="move-display">
+                <div class="move-name">THE SKY WALKER</div>
+                <div class="move-description">
+                    Coast-to-coast in 3.2 seconds. Defenders optional. Physics negotiable.
+                </div>
+                <button class="activate-button" id="activateMove">
+                    <span class="button-text">ACTIVATE</span>
+                    <span class="button-glow"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="card-footer">
+            <div class="rarity-badge">ULTRA RARE ★★★★★</div>
+            <div class="card-number">#004 / 1000</div>
+            <div class="copyright">© 2024 AMEN THOMPSON TRADING CARD CO.</div>
+        </div>
+    </div>
+
+    <!-- Easter Egg Modal -->
+    <div class="modal" id="moveModal">
+        <div class="modal-content">
+            <div class="dunk-animation">🏀</div>
+            <h3>BUCKET!</h3>
+            <p>+2 POINTS • CROWD GOES WILD</p>
+            <button class="close-button" id="closeModal">CONTINUE</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
